@@ -1,0 +1,23 @@
+{
+  "name": "@blockware/sdk-nosql-mongodb",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blockwarecom/sdk-nodejs-nosql-mongodb.git"
+  },
+  "keywords": [
+    "blockware"
+  ],
+  "author": "Henrik Hofmeister <hh@blockware.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/blockwarecom/sdk-nodejs-nosql-mongodb/issues"
+  },
+  "homepage": "https://github.com/blockwarecom/sdk-nodejs-nosql-mongodb#readme",
+  "dependencies": {
+    "@blockware/sdk-config": "0.0.1",
+    "mongodb": "3.2.7"
+  }
+}
