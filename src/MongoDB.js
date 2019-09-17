@@ -35,7 +35,7 @@ class MongoDB {
 
         this._client = await Mongo.connect(uri, {
             poolSize: 10,
-            appname: provider.getServiceName(),
+            appname: provider.getInstanceId(),
             useNewUrlParser: true,
             auth: {
                 user: this._mongoInfo.credentials.username,
