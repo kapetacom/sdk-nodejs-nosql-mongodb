@@ -3,7 +3,7 @@ const {MongoClient:Mongo} = require('mongodb');
 const RESOURCE_TYPE = "nosqldb.blockware.com/v1/mongodb";
 const PORT_TYPE = "mongodb";
 
-class MongoClient {
+class MongoDB {
 
     /**
      * Initialise mongo client for database.
@@ -79,4 +79,4 @@ class MongoClient {
 }
 
 
-module.exports = MongoClient;
+module.exports = MongoDB;

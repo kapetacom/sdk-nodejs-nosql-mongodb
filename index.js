@@ -1,7 +1,5 @@
-const MongoClient = require('./src/MongoClient');
-const AbstractMongoRepository = require('./src/AbstractMongoRepository');
+const MongoDB = require('./src/MongoDB');
 
 module.exports = {
-    MongoClient,
-    AbstractMongoRepository
+    MongoDB
 };
