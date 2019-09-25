@@ -1,13 +1,11 @@
 const Config = require('@blockware/sdk-config');
-const {MongoClient:Mongo} = require('mongodb');
-const RESOURCE_TYPE = "nosqldb.blockware.com/v1/mongodb";
+const { MongoClient: Mongo } = require('mongodb');
+const RESOURCE_DB_KIND = "nosqldb.blockware.com/v1/mongodb";
 const PORT_TYPE = "mongodb";
 
 class MongoDB {
-
     /**
      * Initialise mongo client for database.
-     *
      * @param {string} dbName
      */
     constructor(dbName) {
@@ -18,8 +16,13 @@ class MongoDB {
 
         //Add init method to startup sequence
         Config.onReady(async (provider) => {
-            await this.init(provider);
+            try {
+                await this.init(provider);
+            } catch (error) {
+                console.log(error);
+            }
         });
+
     }
 
     /**
@@ -29,10 +32,8 @@ class MongoDB {
      * @return {Promise<void>}
      */
     async init(provider) {
-        this._mongoInfo = await provider.getResourceInfo(RESOURCE_TYPE, PORT_TYPE);
-
+        this._mongoInfo = await provider.getResourceInfo(RESOURCE_DB_KIND, PORT_TYPE);
         const uri = this._getConnectionUri();
-
         this._client = await Mongo.connect(uri, {
             poolSize: 10,
             appname: provider.getInstanceId(),
@@ -42,40 +43,43 @@ class MongoDB {
                 password: this._mongoInfo.credentials.password
             }
         });
-
         this._ready = true;
 
-        console.log('MongoDB client ready for %s --> %s:%s', this._dbName, this._mongoInfo.host, this._mongoInfo.port);
-    }
 
+    }
 
     _getConnectionUri() {
         return 'mongodb://' + this._mongoInfo.host + ':' + this._mongoInfo.port;
     }
 
-    async findFirst(mongoQuery) {
-
+    /**
+     * 
+     * @param {*} collection 
+     * @returns {Collection}
+     * @memberof MongoClient
+     */
+    collection(collection) {
+        return this._client.db(this._dbName).collection(collection);
     }
 
-    async findAll(mongoQuery) {
-
+    /**
+     * 
+     * @param {*} db 
+     * @returns {Db}
+     */
+    db() {
+        return this._client.db(this._dbName);
     }
 
-    async deleteFirst(mongoQuery) {
-
+    /**
+     * 
+     * @param {*} _client 
+     * @returns {Client}
+     */
+    client() {
+        return this._client;
     }
 
-    async deleteMulti(mongoQuery) {
-
-    }
-
-    async updateFirst(mongoQuery, updateStatement) {
-
-    }
-
-    async updateMulti(mongoQuery, updateStatement) {
-
-    }
 }
 
 
