@@ -16,11 +16,7 @@ class MongoDB {
 
         //Add init method to startup sequence
         Config.onReady(async (provider) => {
-            try {
-                await this.init(provider);
-            } catch (error) {
-                console.log(error);
-            }
+            await this.init(provider);
         });
 
     }
@@ -54,7 +50,7 @@ class MongoDB {
 
     /**
      * 
-     * @param {*} collection 
+     * @param {string} collection 
      * @returns {Collection}
      * @memberof MongoClient
      */
@@ -64,7 +60,6 @@ class MongoDB {
 
     /**
      * 
-     * @param {*} db 
      * @returns {Db}
      */
     db() {
@@ -73,7 +68,6 @@ class MongoDB {
 
     /**
      * 
-     * @param {*} _client 
      * @returns {Client}
      */
     client() {
