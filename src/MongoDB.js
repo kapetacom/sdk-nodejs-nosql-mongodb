@@ -6,10 +6,11 @@ const PORT_TYPE = "mongodb";
 class MongoDB {
     /**
      * Initialise mongo client for database.
-     * @param {string} dbName
+     * @param {string} resourceName
      */
-    constructor(dbName) {
-        this._dbName = dbName;
+    constructor(resourceName) {
+        this._resourceName = resourceName;
+        this._dbName = null;
         this._ready = false;
         this._mongoInfo = null;
         this._client = null;
@@ -28,7 +29,8 @@ class MongoDB {
      * @return {Promise<void>}
      */
     async init(provider) {
-        this._mongoInfo = await provider.getResourceInfo(RESOURCE_DB_KIND, PORT_TYPE);
+        this._mongoInfo = await provider.getResourceInfo(RESOURCE_DB_KIND, PORT_TYPE, this._resourceName);
+        this._dbName = this._mongoInfo.options && this._mongoInfo.options.dbName ? this._mongoInfo.options.dbName : this._resourceName;
         const uri = this._getConnectionUri();
         this._client = await Mongo.connect(uri, {
             poolSize: 10,
