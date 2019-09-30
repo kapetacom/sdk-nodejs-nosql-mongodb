@@ -1,6 +1,6 @@
 {
   "name": "@blockware/sdk-nosql-mongodb",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "",
   "main": "index.js",
   "repository": {
@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/blockwarecom/sdk-nodejs-nosql-mongodb#readme",
   "dependencies": {
-    "@blockware/sdk-config": "0.0.3",
+    "@blockware/sdk-config": "0.0.4",
     "mongodb": "3.2.7"
   }
 }
