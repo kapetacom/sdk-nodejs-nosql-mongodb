@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/blockwarecom/sdk-nodejs-nosql-mongodb#readme",
   "dependencies": {
-    "@blockware/sdk-config": "^0.0.8",
+    "@blockware/sdk-config": "^0.0.10",
     "mongodb": "3.2.7"
   }
 }
