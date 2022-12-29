@@ -1,8 +1,12 @@
 {
   "name": "@blockware/sdk-nosql-mongodb",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "",
   "main": "index.js",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/blockwarecom/sdk-nodejs-nosql-mongodb.git"
