@@ -1,6 +1,6 @@
-const Config = require('@blockware/sdk-config');
+const Config = require('@kapeta/sdk-config');
 const { MongoClient: Mongo } = require('mongodb');
-const RESOURCE_DB_KIND = "blockware/resource-type-mongodb";
+const RESOURCE_DB_KIND = "kapeta/resource-type-mongodb";
 const PORT_TYPE = "mongodb";
 
 class MongoDB {
