@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/compare/v1.0.0...v1.0.1) (2023-06-09)
+
+
+### Bug Fixes
+
+* Support mixed modules ([fee40dd](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/commit/fee40dd3dfa15029cfb49bfa3619bea1b18597c5))
+
 # 1.0.0 (2023-06-09)
 
 
