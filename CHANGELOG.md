@@ -1,0 +1,6 @@
+# 1.0.0 (2023-06-09)
+
+
+### Features
+
+* Rewrote to TS ([#3](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/issues/3)) ([82cf71e](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/commit/82cf71ea1b9ef56a8ce856fae842d7ef10a5ddbd))
