@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/compare/v1.0.1...v1.1.0) (2023-06-11)
+
+
+### Features
+
+* Change Mongo SDK to use Prisma ([#4](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/issues/4)) ([6749da9](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/commit/6749da933cd5c8a67eb5f2884ccac32f6114b846))
+
 ## [1.0.1](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/compare/v1.0.0...v1.0.1) (2023-06-09)
 
 
