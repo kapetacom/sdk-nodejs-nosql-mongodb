@@ -1,84 +1,65 @@
 import Config, { ConfigProvider, ResourceInfo } from '@kapeta/sdk-config';
-import { MongoClient as Mongo } from 'mongodb';
-
-const RESOURCE_DB_KIND = 'kapeta/resource-type-mongodb';
+const RESOURCE_TYPE = 'kapeta/resource-type-mongodb';
 const PORT_TYPE = 'mongodb';
 
-export class MongoDB {
+interface PrismaClient {
+    $connect(): Promise<void>;
+    $disconnect(): Promise<void>;
+}
+
+
+export abstract class MongoDB<T extends PrismaClient> {
     private readonly _resourceName: string;
     private _ready: boolean = false;
+    private _dbInfo?: ResourceInfo;
     private _dbName?: string;
-    private _mongoInfo?: ResourceInfo;
-    private _client?: Mongo;
-    /**
-     * Initialise mongo client for database.
-     * @param {string} resourceName
-     */
-    constructor(resourceName: string) {
+    private _prisma?: T;
+    constructor(resourceName:string) {
         this._resourceName = resourceName;
-
-        //Add init method to startup sequence
-        Config.onReady(async (provider: ConfigProvider) => {
+        Config.onReady(async (provider) => {
             await this.init(provider);
         });
     }
 
-    /**
-     * Called automatically during startup sequence.
-     *
-     * @param {ConfigProvider} provider
-     * @return {Promise<void>}
-     */
+    abstract createClient(opts: any): T;
+
     async init(provider: ConfigProvider) {
-        this._mongoInfo = await provider.getResourceInfo(RESOURCE_DB_KIND, PORT_TYPE, this._resourceName);
+        this._dbInfo = await provider.getResourceInfo(RESOURCE_TYPE, PORT_TYPE, this._resourceName);
         this._dbName =
-            this._mongoInfo.options && this._mongoInfo.options.dbName
-                ? this._mongoInfo.options.dbName
+            this._dbInfo.options && this._dbInfo.options.dbName
+                ? this._dbInfo.options.dbName
                 : this._resourceName;
-        const uri = this._getConnectionUri();
-        this._client = await Mongo.connect(uri, {
-            maxPoolSize: 10,
-            appName: provider.getInstanceId(),
-            auth: this._mongoInfo.credentials?.username
-                ? {
-                      username: this._mongoInfo.credentials?.username,
-                      password: this._mongoInfo.credentials?.password,
-                  }
-                : undefined,
+
+        let credentials = '';
+        if (this._dbInfo?.credentials?.username) {
+            credentials += this._dbInfo.credentials.username;
+
+            if (this._dbInfo.credentials.password) {
+                credentials += ':' + this._dbInfo.credentials.password;
+            }
+        }
+
+        const url = `mongodb://${credentials}@${this._dbInfo.host}:${this._dbInfo.port}/${this._dbName}`;
+        console.log('Connecting to mongodb database: %s', url);
+
+        this._prisma = this.createClient({
+            datasources: {
+                db: {
+                    url
+                },
+            },
         });
+
+        await this._prisma.$connect();
+        console.log('Connected successfully to mongodb database: %s', url);
         this._ready = true;
     }
 
-    _getConnectionUri() {
-        return 'mongodb://' + this._mongoInfo?.host + ':' + this._mongoInfo?.port;
-    }
-
-    /**
-     *
-     * @param {string} collection
-     * @returns {Collection}
-     * @memberof MongoClient
-     */
-    collection(collection: string) {
-        return this.client().db(this._dbName).collection(collection);
-    }
-
-    /**
-     *
-     * @returns {Db}
-     */
-    db() {
-        return this.client().db(this._dbName);
-    }
-
-    /**
-     *
-     * @returns {Client}
-     */
-    client() {
-        if (!this._client) {
-            throw new Error('MongoDB client not ready');
+    get client():T {
+        if (!this._ready) {
+            throw new Error('MongoDB not ready');
         }
-        return this._client;
+
+        return this._prisma!;
     }
 }
