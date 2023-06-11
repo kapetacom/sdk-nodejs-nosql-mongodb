@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/compare/v1.1.0...v1.1.1) (2023-06-11)
+
+
+### Bug Fixes
+
+* Default to commonjs ([24bfe6f](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/commit/24bfe6f699875da2342b74ffc6a6226ae31f971d))
+
 # [1.1.0](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/compare/v1.0.1...v1.1.0) (2023-06-11)
 
 
