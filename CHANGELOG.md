@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/compare/v1.1.1...v1.1.2) (2023-06-16)
+
+
+### Bug Fixes
+
+* Added authSource to DB URI ([#5](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/issues/5)) ([e087de0](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/commit/e087de0b4f3fa265635cb1fc27f5053ad51806e9))
+
 ## [1.1.1](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/compare/v1.1.0...v1.1.1) (2023-06-11)
 
 
