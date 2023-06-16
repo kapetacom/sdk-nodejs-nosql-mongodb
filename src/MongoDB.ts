@@ -39,7 +39,7 @@ export abstract class MongoDB<T extends PrismaClient> {
             }
         }
 
-        const url = `mongodb://${credentials}@${this._dbInfo.host}:${this._dbInfo.port}/${this._dbName}`;
+        const url = `mongodb://${credentials}@${this._dbInfo.host}:${this._dbInfo.port}/${this._dbName}?authSource=admin`;
         console.log('Connecting to mongodb database: %s', url);
 
         this._prisma = this.createClient({
