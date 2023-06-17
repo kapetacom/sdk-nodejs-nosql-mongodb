@@ -23,7 +23,7 @@ async function resolveUrl(resourceName: string) {
         }
     }
 
-    return `mongodb://${credentials}@${dbInfo.host}:${dbInfo.port}/${dbName}?authSource=admin`;
+    return `mongodb://${credentials}@${dbInfo.host}:${dbInfo.port}/${dbName}?authSource=admin&directConnection=true`;
 }
 
 if (!process.argv[2]) {
