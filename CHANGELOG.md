@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/compare/v1.1.2...v1.1.3) (2023-06-17)
+
+
+### Bug Fixes
+
+* Use direct connections when connecting to local replicasets ([#6](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/issues/6)) ([97fdaf2](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/commit/97fdaf2d641644c53ce03d91b913af73a63fa773))
+
 ## [1.1.2](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/compare/v1.1.1...v1.1.2) (2023-06-16)
 
 
