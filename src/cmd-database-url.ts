@@ -1,29 +1,12 @@
 import Config from '@kapeta/sdk-config';
-
-const RESOURCE_TYPE = 'kapeta/resource-type-mongodb';
-const PORT_TYPE = 'mongodb';
+import {createDBURI} from "./utils";
 
 //Disable any logging from the SDK
 console.log = function() {}
 
 async function resolveUrl(resourceName: string) {
     const provider = await Config.init(process.cwd(), '' );
-    const dbInfo = await provider.getResourceInfo(RESOURCE_TYPE, PORT_TYPE, resourceName);
-    const dbName =
-        dbInfo.options && dbInfo.options.dbName
-            ? dbInfo.options.dbName
-            : resourceName;
-
-    let credentials = ''
-    if (dbInfo.credentials?.username) {
-        credentials += encodeURIComponent(dbInfo.credentials.username);
-
-        if (dbInfo.credentials.password) {
-            credentials += ':' + encodeURIComponent(dbInfo.credentials.password);
-        }
-    }
-
-    return `mongodb://${credentials}@${dbInfo.host}:${dbInfo.port}/${encodeURIComponent(dbName)}?authSource=admin&directConnection=true`;
+    return createDBURI(provider, resourceName);
 }
 
 if (!process.argv[2]) {
