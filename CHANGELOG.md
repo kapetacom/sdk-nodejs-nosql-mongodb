@@ -1,3 +1,10 @@
+## [1.1.4](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/compare/v1.1.3...v1.1.4) (2023-06-29)
+
+
+### Bug Fixes
+
+* Make sure we uri encode credentials and db name ([#7](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/issues/7)) ([f4a367a](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/commit/f4a367a45743189672a0260dd81dcd9a2f2abdfa))
+
 ## [1.1.3](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/compare/v1.1.2...v1.1.3) (2023-06-17)
 
 
