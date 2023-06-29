@@ -1,3 +1,10 @@
+## [1.1.5](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/compare/v1.1.4...v1.1.5) (2023-06-29)
+
+
+### Bug Fixes
+
+* Moved uri creation into util to ensure its always the same ([73942e8](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/commit/73942e82ad035c1912801971d85dd04f33d8be0f))
+
 ## [1.1.4](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/compare/v1.1.3...v1.1.4) (2023-06-29)
 
 
