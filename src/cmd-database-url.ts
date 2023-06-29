@@ -16,14 +16,14 @@ async function resolveUrl(resourceName: string) {
 
     let credentials = ''
     if (dbInfo.credentials?.username) {
-        credentials += dbInfo.credentials.username;
+        credentials += encodeURIComponent(dbInfo.credentials.username);
 
         if (dbInfo.credentials.password) {
-            credentials += ':' + dbInfo.credentials.password;
+            credentials += ':' + encodeURIComponent(dbInfo.credentials.password);
         }
     }
 
-    return `mongodb://${credentials}@${dbInfo.host}:${dbInfo.port}/${dbName}?authSource=admin&directConnection=true`;
+    return `mongodb://${credentials}@${dbInfo.host}:${dbInfo.port}/${encodeURIComponent(dbName)}?authSource=admin&directConnection=true`;
 }
 
 if (!process.argv[2]) {
