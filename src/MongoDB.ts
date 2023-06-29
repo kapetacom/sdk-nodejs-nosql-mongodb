@@ -21,7 +21,7 @@ export abstract class MongoDB<T extends PrismaClient> {
     abstract createClient(opts: any): T;
 
     async init(provider: ConfigProvider) {
-        const url = createDBURI(provider, this._resourceName);
+        const url = await createDBURI(provider, this._resourceName);
         console.log('Connecting to mongodb database: %s', url);
 
         this._prisma = this.createClient({
