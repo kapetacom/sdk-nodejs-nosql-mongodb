@@ -1,3 +1,10 @@
+## [1.1.6](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/compare/v1.1.5...v1.1.6) (2023-06-29)
+
+
+### Bug Fixes
+
+* Remembet to await ([a583c65](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/commit/a583c6537abb5a04a09984df7ffdaa1b579415b4))
+
 ## [1.1.5](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/compare/v1.1.4...v1.1.5) (2023-06-29)
 
 

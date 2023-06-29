@@ -1,6 +1,6 @@
 {
     "name": "@kapeta/sdk-nosql-mongodb",
-    "version": "1.1.5",
+    "version": "1.1.6",
     "description": "MongoDB NoSQL SDK for Kapeta",
     "type": "commonjs",
     "exports": {
