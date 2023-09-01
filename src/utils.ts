@@ -16,6 +16,9 @@ export async function createDBURI(provider:ConfigProvider, resourceName: string)
             credentials += ':' + encodeURIComponent(dbInfo.credentials.password);
         }
     }
-
+    if (dbInfo.replicaSet) {
+        return `mongodb://${credentials}@${dbInfo.host}:${dbInfo.port}/${encodeURIComponent(dbName)}?replicaSet=${dbInfo.replicaSet}?authSource=admin&directConnection=true`;
+    }
     return `mongodb://${credentials}@${dbInfo.host}:${dbInfo.port}/${encodeURIComponent(dbName)}?authSource=admin&directConnection=true`;
+    
 }
