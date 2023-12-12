@@ -8,6 +8,9 @@ export const RESOURCE_TYPE = 'kapeta/resource-type-mongodb';
 export const PORT_TYPE = 'mongodb';
 export async function createDBURI(provider:ConfigProvider, resourceName: string) {
     const dbInfo = await provider.getResourceInfo(RESOURCE_TYPE, PORT_TYPE, resourceName);
+    if (!dbInfo) {
+        throw new Error(`Resource ${resourceName} not found`);
+    }
     const dbName =
         dbInfo.options && dbInfo.options.dbName
             ? dbInfo.options.dbName
