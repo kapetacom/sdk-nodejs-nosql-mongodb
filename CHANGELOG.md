@@ -1,3 +1,10 @@
+## [1.1.7](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/compare/v1.1.6...v1.1.7) (2023-12-12)
+
+
+### Bug Fixes
+
+* Bump prisma to latest ([#10](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/issues/10)) ([27411de](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/commit/27411de853cdd389dd08e2d560b88ca62ed002d9))
+
 ## [1.1.6](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/compare/v1.1.5...v1.1.6) (2023-06-29)
 
 
