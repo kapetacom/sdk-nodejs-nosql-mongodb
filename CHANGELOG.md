@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/compare/v1.1.7...v2.0.0) (2023-12-13)
+
+
+### Features
+
+* Increment to v2 ([e43d2ab](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/commit/e43d2ab8cd64ef4b26fd75b99c4a2d9db2a95a2f))
+
+
+### BREAKING CHANGES
+
+* Increment to depend on V2
+
 ## [1.1.7](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/compare/v1.1.6...v1.1.7) (2023-12-12)
 
 
