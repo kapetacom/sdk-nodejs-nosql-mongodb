@@ -81,12 +81,12 @@
         "prisma": "^5.6.0"
     },
     "peerDependencies": {
-        "@kapeta/sdk-config": "<2"
+        "@kapeta/sdk-config": "^2"
     },
     "devDependencies": {
         "@kapeta/eslint-config": "^0.6.0",
         "@kapeta/prettier-config": "^0.6.0",
-        "@kapeta/sdk-config": "<2",
+        "@kapeta/sdk-config": "^2",
         "@types/node": "^20.3.0",
         "eslint": "^8.42.0",
         "eslint-config-prettier": "^8.8.0",
