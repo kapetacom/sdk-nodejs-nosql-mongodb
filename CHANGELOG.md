@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/compare/v2.0.0...v2.1.0) (2024-01-07)
+
+
+### Features
+
+* Add functional client creator and documentation ([#11](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/issues/11)) ([260ac79](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/commit/260ac79a63f481d524ca944b2966dfd81a92b642))
+
 # [2.0.0](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/compare/v1.1.7...v2.0.0) (2023-12-13)
 
 
