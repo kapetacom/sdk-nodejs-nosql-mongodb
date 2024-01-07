@@ -11,6 +11,13 @@ interface PrismaClient {
     $disconnect(): Promise<void>;
 }
 
+/**
+ * Create a mongodb client and connect it to the database
+ *
+ * @param config the kapeta config provider
+ * @param resourceName the resource name within the block
+ * @param createClient a function that creates the prisma client
+ */
 export const createMongoDBClient = async <T extends PrismaClient>(config:ConfigProvider, resourceName: string, createClient: (opts: any) => T) => {
     const url = await createDBURI(config, resourceName);
     console.log('Connecting to mongodb database: %s', resourceName);
@@ -28,6 +35,11 @@ export const createMongoDBClient = async <T extends PrismaClient>(config:ConfigP
     return prisma;
 }
 
+/**
+ * A base class for mongodb databases.
+ *
+ * See also {@link createMongoDBClient} which is the recommended way to create a postgres client.
+ */
 export abstract class MongoDB<T extends PrismaClient> {
     private readonly _resourceName: string;
     private _ready: boolean = false;
