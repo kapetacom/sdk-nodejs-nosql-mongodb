@@ -1,3 +1,15 @@
+# [2.2.0](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/compare/v2.1.0...v2.2.0) (2024-03-01)
+
+
+### Bug Fixes
+
+* review comments ([2f34639](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/commit/2f346391e3a95f737fd64bfe32388a028133efc4))
+
+
+### Features
+
+* add support for mongodb+srv protocol ([7ec1c90](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/commit/7ec1c90ab2785516d77ec41aea41141ecd526624))
+
 # [2.1.0](https://github.com/kapetacom/sdk-nodejs-nosql-mongodb/compare/v2.0.0...v2.1.0) (2024-01-07)
 
 
